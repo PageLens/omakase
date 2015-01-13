@@ -1,0 +1,13 @@
+@import "variables";
+body.devise-sessions {
+  &.new {
+    .welcome {
+      margin: 30px auto;
+    }
+    .social-sign-in {
+      .btn {
+        margin: 10px 20px 10px 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<%= form_for(@folder_invitation, remote: true) do |f| %>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"><%= t('global.close') %></span></button>
+    <h4 class="modal-title"><%= t('.share_folder') %></h4>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control', autofocus: true %>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <%= f.label :message %> <%= t('global.optional') %>
+      <%= f.text_area :message, class: 'form-control' %>
+    </div>
+  </div>
+  <%= f.hidden_field :folder_id %>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('global.close') %></button>
+    <%= f.submit t('.share'), class: "btn btn-primary" %>
+  </div>
+<% end %>

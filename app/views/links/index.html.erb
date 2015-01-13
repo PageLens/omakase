@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%= render "layouts/application_head" %>
+</head>
+<body class="<%= params[:controller].parameterize %> <%= params[:action].parameterize %>" role="document">
+<div class="container-fluid">
+  <div class="row">
+    <%= render "links/sidebar" %>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <%= content_tag :div, class: 'page-header clearfix' do %>
+        <%= content_tag :div, class: 'pull-left' do %>
+          <%= content_tag :h3, class: 'visible-xs-block' do %>
+            <%= @folder ? @folder.name : t(".all_links") %>
+          <% end %>
+          <%= form_tag search_links_path, method: :get, class: 'form-inline' do %>
+            <%= content_tag :div, class: 'form-group' do %>
+              <%= hidden_field_tag :folder_id, @folder.id if @folder %>
+              <%= content_tag :div, class: 'input-group' do %>
+                <%= text_field_tag :query, params[:query], class: 'form-control',
+                  placeholder:  @folder ? t('.search_folder', folder: @folder.name) : t('.search_links') %>
+                <%= content_tag :span, class: 'input-group-btn' do %>
+                  <%= button_tag class: 'btn btn-default' do %>
+                    <%= content_tag :span, t('global.search'), class: 'sr-only' %>
+                    <span class="glyphicon glyphicon-search"></span>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <%= content_tag :div, class: 'pull-right' do %>
+          <%= link_to new_link_path(folder_id: @folder), remote: true, class: 'btn btn-default btn-sm' do %>
+            <span class="glyphicon glyphicon-plus"></span>
+            <%= t('global.add_link') %>
+          <% end %>
+          <% if @folder %>
+            <%= content_tag :div, class: 'btn-group' do %>
+            <%= link_to new_folder_invitation_path(folder_id: @folder), remote: true, class: 'btn btn-default btn-sm' do %>
+              <span class="glyphicon glyphicon-share"></span>
+              <%= t('.share') %>
+            <% end %>
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+              <span class="sr-only"><%= t('.folder_actions') %></span>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+              <% if @folder.sharings_count > 0 %>
+                <li class="dropdown-header">
+                  <%= t('.sharings_count', count: @folder.sharings_count) %>
+                </li>
+              <% end %>
+              <% if @folder.user_id == current_user.id %>
+                <li>
+                  <%= link_to edit_folder_path(@folder), remote: true do %>
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <%= t('global.edit') %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to folder_path(@folder), method: :delete, remote: true,
+                    data: {
+                      confirm: t('.confirm_delete_folder', count: @folder.sharings_count),
+                      confirm_ok: t('global.delete')} do %>
+                    <span class="glyphicon glyphicon-trash"></span>
+                    <%= t('global.delete') %>
+                  <% end %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to folder_path(@folder), method: :delete, remote: true,
+                    data: {
+                      confirm: t('.confirm_leave_folder'),
+                      confirm_ok: t('.leave')} do %>
+                    <span class="glyphicon glyphicon-log-out"></span>
+                    <%= t('.leave') %>
+                  <% end %>
+                </li>
+              <% end %>
+              <li class="divider"></li>
+              <li>
+                <%= link_to folder_sharings_path(@folder), remote: true do %>
+                  <span class="glyphicon glyphicon-cog"></span>
+                  <%= t(".sharing_settings") %>
+                <% end %>
+              </li>
+            </ul>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <%= render 'layouts/application_alert' %>
+
+      <% if @links.present? %>
+        <%= content_tag :ul, class: 'links', data: {folder_id: @folder.try(:id)} do %>
+          <% @links.each do |l| %>
+            <%= render 'link_item', link: l %>
+          <% end %>
+        <% end %>
+
+        <%= pagination_for(@links) %>
+      <% else %>
+        <div class="no-links">
+          <%= content_tag :h4, t(".no_links"), class: 'lead' %>
+          <div class="suggestions">
+            <%= content_tag :p, t(".suggestions") %>
+            <ul>
+              <%= content_tag :li, t(".bookmarklet_suggestion_html", url: tools_path(anchor: "bookmarklet"), button: t("global.save_link_button")) %>
+              <%= content_tag :li, t(".connect_suggestion_html",
+                facebook_url: omniauth_authorize_path(current_user, :facebook, origin: request.original_url),
+                twitter_url: omniauth_authorize_path(current_user, :twitter, origin: request.original_url)) %>
+              <%= content_tag :li, t(".import_suggestion_html", url: tools_path(anchor: "bookmark-importer")) %>
+              <%#= content_tag :li, t(".email_suggestion_html", url: tools_path(anchor: "emailbot")) %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= render 'layouts/modal' %>
+</body>
+</html>

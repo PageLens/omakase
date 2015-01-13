@@ -1,0 +1,80 @@
+<div class="navbar-default col-sm-3 col-md-2 sidebar">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only"><%= t("global.toggle_navigation") %></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <%= link_to(image_tag('pagelens_logo_388x100_white.png', alt: t("global.pagelens")), root_path, :class => "navbar-brand page-header-logo") %>
+  </div>
+  <div class="navbar-collapse collapse">
+    <%#= content_tag :h5, current_user.username %>
+    <ul class="nav nav-sidebar folders-sidebar">
+      <%= content_tag :li, id: 'all-links', class: ((current_page?(root_path) or current_page?(links_path)) and params[:folder_id].blank?) ? 'active folder-item' : 'folder-item' do %>
+        <%= link_to root_path do %>
+          <span class="glyphicon glyphicon-globe"></span>
+          <%= t('.all_links') %>
+        <% end %>
+      <% end %>
+      <% @folders.each do |folder| %>
+        <%= render "layouts/folder_item", folder: folder %>
+      <% end %>
+      <li id="new-folder-link">
+        <%= link_to new_folder_path, remote: true do %>
+          <span class="glyphicon glyphicon-plus-sign"></span>
+          <%= t('.new_folder') %>
+        <% end %>
+      </li>
+      <!-- <li id="new-link">
+        <%= link_to new_link_path(folder_id: @folder.try(:id)), remote: true do %>
+          <span class="glyphicon glyphicon-plus"></span>
+          <%= t('global.add_link') %>
+        <% end %>
+      </li> -->
+    </ul>
+    <hr>
+    <ul class="nav nav-sidebar">
+      <li>
+        <%= link_to tools_path do %>
+          <span class="glyphicon glyphicon-gift"></span>
+          <%= t('global.tools') %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_feedback_path do %>
+          <span class="glyphicon glyphicon-bullhorn"></span>
+          <%= t('global.feedback') %>
+        <% end %>
+      </li>
+      <% unless current_user.accounts.map(&:provider).include? "facebook" %>
+        <li>
+          <%= link_to omniauth_authorize_path(current_user, :facebook, origin: request.original_url) do %>
+            <span class="glyphicon glyphicon-transfer"></span>
+            <%= t('global.connect_to_facebook') %>
+          <% end %>
+        </li>
+      <% end %>
+      <% unless current_user.accounts.map(&:provider).include? "twitter" %>
+        <li>
+          <%= link_to omniauth_authorize_path(current_user, :twitter, origin: request.original_url) do %>
+            <span class="glyphicon glyphicon-transfer"></span>
+            <%= t('global.connect_to_twitter') %>
+          <% end %>
+        </li>
+      <% end %>
+      <li>
+        <%= link_to settings_url do %>
+          <span class="glyphicon glyphicon-cog"></span>
+          <%= t('global.settings') %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to destroy_user_session_url do %>
+          <span class="glyphicon glyphicon-log-out"></span>
+          <%= t('global.logout') %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>

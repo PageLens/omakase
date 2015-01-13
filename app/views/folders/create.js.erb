@@ -1,0 +1,6 @@
+<% if @folder.errors.blank? %>
+Omakase.Folders.insertToSidebar('<%= j render "layouts/folder_item", folder: @folder %>');
+$('#remote-modal').modal('hide');
+<% else %>
+Omakase.alert(I18n.t('global.save_failed'), '<%= j @folder.errors.full_messages.join(", ").html_safe %>');
+<% end %>

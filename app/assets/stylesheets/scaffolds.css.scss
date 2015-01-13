@@ -1,0 +1,10 @@
+@import "variables";
+@import "bootstrap";
+
+.field_with_errors {
+  @include form-control-validation($state-danger-text, $state-danger-text, $state-danger-bg);
+}
+
+.error-explanation {
+
+}

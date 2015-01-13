@@ -1,0 +1,26 @@
+<%= form_for(@user, url: settings_path) do |f| %>
+  <div class="form-group">
+    <%= f.label :name, class: 'control-label' %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :zone, class: 'control-label' %>
+    <%= f.time_zone_select :zone, ActiveSupport::TimeZone.us_zones, {default: "Pacific Time (US & Canada)"}, {class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password, class: 'control-label' %>
+    <%= f.password_field :password, class: 'form-control', placeholder: t('.leave_blank_password') %>
+  </div>
+  <div class="form-group hide password-present-group">
+    <%= f.label :password_confirmation, class: 'control-label' %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+  <% if @user.has_password? %>
+    <div class="form-group hide password-present-group">
+      <%= f.label :current_password, class: 'control-label' %>
+      <%= f.password_field :current_password, class: 'form-control' %>
+    </div>
+  <% end %>
+  <%= f.submit t("global.save"), class: 'btn btn-primary' %>
+  <%= link_to t("global.back"), :back %>
+<% end %>

@@ -1,0 +1,11 @@
+<%= content_tag :li, id: "folder-#{folder.id}", class: current_page?(folder_links_path(folder.to_param)) ? 'folder-item active' : 'folder-item', title: folder.name, data: {id: folder.id, name: folder.name} do %>
+  <% path = folder_links_path(folder) %>
+  <%= link_to path do %>
+    <% if current_page?(path) %>
+      <span class="glyphicon glyphicon-folder-open"></span>
+    <% else %>
+      <span class="glyphicon glyphicon-folder-close"></span>
+    <% end %>
+    <%= folder.name %>
+  <% end %>
+<% end %>

@@ -1,0 +1,16 @@
+javascript:(
+function(){
+  var d=document,w=window,s;
+  w.PLhost='<%= request.host_with_port %>';
+  w.PLv=3;
+  if(w.PLbm!==undefined){
+    w.PLbm();
+  }else{
+    s=d.createElement('script');
+    s.src='<%= bookmarklet_js_url.gsub(/^http:/, '') %>';
+    s.onload=function(){
+      w.PLbm();
+    };
+    d.body.appendChild(s);
+  }
+})();

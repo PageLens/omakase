@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%= render "layouts/application_head" %>
+</head>
+<body class="<%= params[:controller].parameterize %> <%= params[:action].parameterize %>" role="document">
+<div class="container clear-fix">
+  <div class="pull-right">
+    <% if user_signed_in? %>
+      <% if !@link or @link.errors.present? %>
+        <div class="alert alert-danger" data-alert data-close="2000">
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only"><%= t('global.close') %></span>
+          </button>
+          <%= t(".save_failed") %>
+        </div>
+      <% else %>
+        <div class="alert alert-success" data-alert data-close="2000">
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only"><%= t('global.close') %></span>
+          </button>
+          <%= t(".save_succeed") %>
+          <%#= link_to t(".edit_bookmark"), edit_bookmark_path(@bookmark), :target => "_blank", :class => "popup" %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="alert alert-warning" data-alert>
+        <button type="button" class="close" data-dismiss="alert">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only"><%= t('global.close') %></span>
+        </button>
+        <%= link_to t(".sign_in_to_use"), bookmarklet_popup_url, :target => "_blank", :class => "popup" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%#= render "layouts/analytics" %>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<%= content_tag :h4, t('.heading') %>
+<% if @folder_invitation.message.present? %>
+  <%= content_tag :p, @folder_invitation.message %>
+<% end %>
+
+<%= content_tag :p do %>
+  <%= link_to @folder_invitation.folder.name, redirect_url(u: folder_invitation_path(@folder_invitation), mc: MailTrackingInterceptor::MAIL_TRACKING_SIGNATURE) %>
+<% end %>

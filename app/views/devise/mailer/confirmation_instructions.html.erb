@@ -1,0 +1,7 @@
+<%= content_tag :h4, t('.welcome', name: @resource.username) %>
+
+<%= content_tag :p, t('.explanation') %>
+
+<%= content_tag :p do %>
+  <%= link_to t('.confirm_account'), redirect_url(u: confirmation_url(@resource, confirmation_token: @token), mc: MailTrackingInterceptor::MAIL_TRACKING_SIGNATURE) %>
+<% end %>

@@ -1,0 +1,288 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  errors:
+    bad_request: "Bad request"
+    forbidden: "Forbidden"
+    internal_server_error: "Internal server error"
+    not_found: "Record is not found"
+    rate_limit_exceeded: "Rate limit exceeded"
+    unauthorized: "Unauthorized"
+    unprocessable_entity: "Unprocessable entity"
+
+  activerecord:
+    errors:
+      models:
+        link:
+          attributes:
+            page_id:
+              taken: 'has already been saved before'
+    models:
+      page: "Web page"
+    attributes:
+      feedback:
+        email: "Your email"
+        description: "Message"
+      link:
+        page_id: "Web page"
+        url: "Web Address"
+      user:
+        zone: "Time zone"
+
+  datetime:
+    distance_in_words:
+      about_x_months:
+        one: '1 month'
+        other: '%{count} months'
+      about_x_years:
+        one: '1 year'
+        other: '%{count} years'
+
+  global:
+    add_link: "Add Link"
+    back: 'Back'
+    cancel: 'Cancel'
+    close: 'Close'
+    connect_to_facebook: 'Connect to Facebook'
+    connect_to_twitter: 'Connect to Twitter'
+    delete: 'Delete'
+    delete_confirmation_title: "Confirmation"
+    description: "PageLens helps you organize, discover, and search your links. With the power of content searching and advanced filters, you will never lose your links. Time to say goodbye to your browser bookmarks."
+    edit: 'Edit'
+    feedback: "Feedback"
+    ok: "OK"
+    links: "Your Links"
+    login: "Login"
+    logout: "Logout"
+    next: "next"
+    optional: "(optional)"
+    pagelens: "PageLens"
+    save_link: "Save Link"
+    save_link_button: '"Save Link" button'
+    previous: "prev"
+    save : "Save"
+    save_failed: "We couldn't save this link"
+    search: "Search"
+    send: "Send"
+    settings: "Settings"
+    time_ago: "%{time} ago"
+    toggle_navigation: "Toggle navigation"
+    tools: "Tools"
+
+  layouts:
+    email:
+      footer_html: 'If you would rather not receive notification emails from PageLens, you can <a href="%{unsubscribe_url}">unsubscribe</a> immediately. To resubscribe or change other PageLens email preferences, visit your <a href="%{settings_url}">account settings</a> to manage email notifications. Please do not reply to this message; it was sent from an unmonitored email address. This message is a service email related to your use of PageLens. For general inquiries or to request support with your PageLens account, please visit us at <a href="%{feedback_url}">PageLens Support</a>.'
+
+  bookmark_imports:
+    create:
+      notice: "Your bookmarks are being processed and they will appear shortly."
+
+    form:
+      upload: "Upload"
+      sign_in_and_import: "Upload your bookmarks"
+      export_instructions_chrome_markdown: |
+        To export bookmarks from Chrome:
+
+        1. On the menu bar, click **Bookmarks** and select **Bookmark Manager**.
+        2. In the Bookmark Manager, click **Organize Bookmarks**.
+        3. Select **Export Bookmarks to HTML File...**.
+        4. Click **Save**. By default, Chrome creates a file called **bookmarks\_ *month*\_*day*\_*year*.html** in your Documents folder.
+      export_instructions_firefox_markdown: |
+        To export bookmarks from Firefox:
+
+        1. On the menu bar, click **Bookmarks** and select **Show All Bookmarks**.
+        2. From the toolbar on the Libary Window, click **Import and Backup** (the right-most star button).
+        3. Select **Export Bookmarks to HTML...**
+        4. Click **Save**. By default, Firefox creates a file called **bookmarks.html** on your Desktop.
+      export_instructions_ie_markdown: |
+        To export favorites from Internet Explorer:
+
+        1. Click the **Favorites** button (star-shaped button near top-right), click the arrow next to the **Add to Favorites** button, and then click **Import and Export**.
+        2. In the **Import/Export Settings** dialog box, click **Export to a file**, and then click **Next**.
+        3. Select the **Favorites** check box, and then click **Next**.
+        4. Select the **Favorites** folder and then click **Next**.
+        5. Click **Export**. By default, Internet Explorer creates a file called **bookmark.htm** in your Documents folder.
+        6. Click **Finish**.
+      export_instructions_safari_markdown: |
+        To export bookmarks from Safari:
+
+        1. On the menu bar, click **File**.
+        2. Select **Export Bookmarks**.
+        3. Click **Save**. By default, Safari creates a file called **Safari Bookmarks.html** on your Desktop.
+      export_instuctions_other_markdown: |
+        Export your browser bookmarks in HTML file format.
+    new:
+      bookmark_importer_intro: "Bookmark Uploader imports your browser bookmarks into PageLens."
+
+  devise:
+    registrations:
+      new:
+        explaination: "This should be easy"
+        sign_up: "Sign Up"
+        title: "Sign up"
+
+    sessions:
+      new:
+        explaination: "PageLens helps you find and share your links."
+        love_social_network: "Love social network?"
+        remember_me: "Remember me"
+        sign_in: "Sign in"
+        sign_in_with_facebook: 'Sign in with Facebook'
+        sign_in_with_twitter: 'Sign in with Twitter'
+        sign_up: "Sign up with email"
+        title: "Welcome to PageLens"
+
+  feedbacks:
+    new:
+      title: "Your feedback is important to us"
+
+    create:
+      notice: "Thank you for the feedback. It means a lot to us."
+
+  folders:
+    modal_form:
+      new_folder: "New Folder"
+
+  folder_invitations:
+    create:
+      notice: "The invitation email has been sent."
+
+    modal_form:
+      share: "Share"
+
+    show:
+      accept: "View Links"
+      ignore: "Ignore"
+      content_with_message: "%{username} wants to share links in a folder called \"%{folder}\" with you via PageLens and left you this message:"
+      content_without_message: "%{username} wants to share some links in a folder called \"%{folder}\" with you via PageLens."
+
+  home:
+    tools:
+      add_to_bookmarks_html: "Drag this link to your Bookmarks Bar"
+      add_to_favorites_html: "Right-click and select &ldquo;Add to Favorites > Favorites Bar&rdquo;"
+      bookmark_importer_explanation: "You can upload your existing bookmarks to PageLens."
+      bookmark_importer_title: "Bookmark Uploader"
+      bookmarklet_explanation: "On any webpage, click this button to save the link to PageLens."
+      install_in_browser_chrome_html: "To add the %{button} in Chrome:"
+      install_in_browser_firefox_html: "To add the %{button} in Firefox:"
+      install_in_browser_ie_html: "To add the %{button} in Internet Explorer:"
+      install_in_browser_safari_html: "To add the %{button} in Safari:"
+      install_in_browser_other_html: "To add the %{button}:"
+      display_bookmarks_in_chrome_html: "Display your Bookmarks by clicking the <b>Wrench Icon > Bookmarks > Show Bookmarks Bar</b>."
+      display_bookmarks_in_firefox_html: "Display your Bookmarks Bar by clicking <b>View > Toolbars > Bookmarks Toolbar</b>."
+      display_bookmarks_in_ie_html: "Display your Favorites Bar by clicking <b>Tools > Toolbars > Favorites Bar.</b> or right-click an open space to the right of the <b>New tab</b> button and select <b>Favorites bar</b>."
+      display_bookmarks_in_safari_html: "Display your Bookmarks Bar by clicking <b>View > Show Bookmarks Bar</b>."
+      display_bookmarks_in_other_html: "Make sure your Bookmarks Bar is visible."
+      drag_button_html: "Drag the %{button} to your Bookmarks bar."
+      button_usage_html: "When you are browsing the web, push the %{button} to save the link."
+      drag_me_to_bookmarks: "Drag me to your Bookmarks Bar. Thanks!"
+      chrome_ext_title: "Chrome Extension"
+      chrome_ext_intro: "PageLens extension automatically uploads your bookmarks and you can search your links directly from the address bar (type p + space)."
+      chrome_ext_download: "Get PageLens extension from Chrome Web Store."
+      emailbot_explanation: "You can email links you want to save and we will save them for you."
+      emailbot_title: "Email Bot"
+      email_instruction: "To save a link by Email:"
+      email_to_html: 'Compose an Email with recipient <a href="mailto:%{email}"><b>%{email}</b></a>.'
+      email_url_html: "Paste/Type the link you want to save in the message body."
+      email_title_html: "(Optional) If you want to specify a name for the link, specify the name on the Email subject. (Leave blank to use the title of the link as the name for the link)."
+      email_note_html: "(Optional) Additional message on the Email body will be used as notes."
+      email_requirement: "*To use this feature, you must send the Email from the Email account you signed up with PageLens. You also have to confirm the Email address."
+
+  links:
+    bm_save:
+      save_failed: "Cannot save Link to PageLens"
+      save_succeed: "Link saved to PageLens"
+      sign_in_to_use: "Click here to sign in to PageLens"
+
+    index:
+      all_links: 'Your Links'
+      bookmarklet_suggestion_html: '<a href="%{url}">Add %{button}</a> to your browser and start saving some links.'
+      confirm_delete_folder:
+        zero: 'Are you sure you want to delete this folder?'
+        one: 'There is 1 other person using this folder. Are you sure you want to delete this folder?'
+        other: "There are %{count} people using this folder. Are you sure you want to delete this folder?"
+      confirm_leave_folder: "Are you sure you want to leave this folder? You will not have access to the links in this folder."
+      connect_suggestion_html: 'Import your links you liked and shared from <a href="%{facebook_url}">Facebook</a> or <a href="%{twitter_url}>"Twitter</a>.'
+      email_suggestion_html: 'Email links to <a href="%{url%}">PageLens Email Bot</a>.'
+      folder_actions: "Toggle Actions"
+      import_suggestion_html: 'Use <a href="%{url}">Bookmark Uploader</a> to import your browser bookmarks.'
+      leave: "Leave folder"
+      no_links: "You have not saved any links."
+      search_folder: "Search %{folder}"
+      search_links: "Search Links"
+      share: "Share"
+      sharings_count:
+        one: "Shared to 1 person"
+        other: "Shared to %{count} people"
+      sharing_settings: "Sharing Settings"
+      suggestions: "Here are some suggestions:"
+
+    link_item:
+      delete_confirmation: "Are you sure you want to delete this link?"
+      drag_folder: "Drag to folder"
+      preview: "Preview"
+
+    modal_form:
+      no_folder: "(No folder)"
+
+    preview:
+      no_content: "The content of the link has not been downloaded. Please try again later."
+
+    quick_add_form:
+      quick_add: "Add Link"
+
+    search:
+      any_time: "Any Time"
+      any_folder: "Any Folder"
+      bookmarklet_suggestion_html: '<a href="%{url}">Add %{button}</a> to your browser to save more links.'
+      connect_suggestion_html: 'Import your links you liked and shared from <a href="%{facebook_url}">Facebook</a> or <a href="%{twitter_url}">Twitter</a>.'
+      no_search_results: "Your search did not match any links :("
+      select_folder: "select folder"
+      select_since: "select since"
+      spell_suggestion: "Make sure all words are spelled correctly."
+      suggestions: "Here are some suggestions:"
+      try_different_query_suggestion: "Try different query."
+
+    search_result:
+      delete_confirmation: "Are you sure you want to delete this link?"
+
+    sidebar:
+      all_links: 'Links'
+      new_folder: "New Folder"
+
+  settings:
+    edit:
+      leave_blank_password: "Leave blank unless you want to set password"
+
+  sharings:
+    index:
+      accessible_text: "This folder is accessible by the following people:"
+      delete_confirmation: "Are you sure you want to remove access for this user?"
+      owner: "owner"
+      remove: "remove access"
+      share: "Share"
+      sharing_settings: "Sharing Settings"
+
+  user_mailer:
+    folder_invitation:
+      heading: "I've shared a folder with you via PageLens."
+      subject: "I've shared a folder with you"

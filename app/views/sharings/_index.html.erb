@@ -1,0 +1,32 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"><%= t('global.close') %></span></button>
+  <h4 class="modal-title"><%= t(".sharing_settings") %></h4>
+</div>
+<div class="modal-body">
+  <%= content_tag :p, t(".accessible_text") %>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>
+          <%= @folder.user.name || @folder.user.username %> (<%= t(".owner") %>)
+        </td>
+      </tr>
+      <% @sharings.each do |sharing| %>
+      <tr>
+        <td>
+          <%= sharing.user.name || sharing.user.username %>
+          <%= link_to folder_sharing_path(@folder, sharing), remote: true, method: :delete, data: {confirm: t('.delete_confirmation'), confirm_ok: t('global.delete')} do %>
+            <%= t(".remove") %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="modal-footer">
+  <%= link_to new_folder_invitation_path(folder_id: @folder), remote: true, class: 'btn btn-default' do %>
+    <%= t('.share') %>
+  <% end %>
+  <button type="button" class="btn btn-primary" data-dismiss="modal"><%= t('global.close') %></button>
+</div>

@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+ETag: "268b22974db96f4b3e9a75d9662cdf74372f3652"
+Content-Type: application/json; charset=UTF-8
+Pragma: no-cache
+Access-Control-Allow-Origin: *
+X-FB-Rev: 1272844
+Cache-Control: private, no-cache, no-store, must-revalidate
+Expires: Sat, 01 Jan 2000 00:00:00 GMT
+X-FB-Debug: LmGndlPbuZLv/+sfodfdsLiFCjxnkbmCiD3xvHodIYw=
+Date: Tue, 03 Jun 2014 21:26:37 GMT
+Transfer-Encoding: chunked
+Connection: keep-alive
+
+{"data":[{"url":"http://example.com"}]}

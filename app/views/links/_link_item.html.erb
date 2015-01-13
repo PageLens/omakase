@@ -1,0 +1,47 @@
+<%= content_tag :li, id: "link-#{link.id}", class: 'link-item panel panel-default', data: {id: link.id, folder_id: link.folder_id} do %>
+  <%= content_tag :div, class: 'image-container img-circle drag-to-folder', data: {crop_image: 'fit'} do %>
+    <%= link_to image_tag(link.page.try(:image_url) || 'globe_512x512_white.png'), link_clicks_path(link) %>
+  <% end %>
+  <%= content_tag :div, class: 'content-container' do %>
+    <%= content_tag :h4 do %>
+      <%= link_to link.name, link_clicks_path(link) %>
+    <% end %>
+    <% if link.keywords.present? %>
+      <%= content_tag :div, class: 'keywords' do %>
+        <% link.keywords.each do |keyword| %>
+          <%= content_tag :span, keyword, class: 'label label-info' %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <%= content_tag :p, link.page.description, class: 'description' if link.page.try(:description).present? %>
+    <%= content_tag :p, class: 'note' do %>
+      <%= content_tag :em, link.note %>
+    <% end if link.note.present? %>
+  <% end %>
+  <%= content_tag :div, class: 'panel-footer' do %>
+    <%= content_tag :ul do %>
+      <%= content_tag :li do %>
+        <span class="glyphicon glyphicon-time"></span>
+        <%= friendly_time_tag(link.saved_at) %>
+      <% end %>
+      <%= content_tag :li do %>
+        <%= link_to preview_link_path(link), remote: true do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+          <%= t('.preview') %>
+        <% end %>
+      <% end %>
+      <%= content_tag :li do %>
+        <%= link_to edit_link_path(link), remote: true do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+          <%= t('global.edit') %>
+        <% end %>
+      <% end %>
+      <%= content_tag :li do %>
+        <%= link_to link_path(link), remote: true, method: 'delete', data: {confirm: t('.delete_confirmation'), confirm_ok: t('global.delete')} do %>
+          <span class="glyphicon glyphicon-trash"></span>
+          <%= t('global.delete') %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

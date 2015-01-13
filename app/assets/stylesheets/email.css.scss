@@ -1,0 +1,31 @@
+@import "variables";
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-color;
+  background-color: $body-bg;
+
+  a {
+    color: $link-color;
+    text-decoration: none;
+  }
+
+  .separator {
+    border: 0;
+    border-top: 1px solid $gray-lighter;
+    border-bottom: 1px solid $white;
+  }
+
+  .footer {
+    border-top: 1px solid $gray-lighter;
+    margin-top: 40px;
+    padding: 10px 0;
+    font-size: $font-size-small;
+    color: lighten($text-color, 60%);
+    line-height: 13px;
+    a {
+      color: lighten($link-color, 30%)
+    }
+  }
+}

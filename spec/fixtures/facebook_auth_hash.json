@@ -1,0 +1,161 @@
+{
+  "provider": "facebook",
+  "uid": "1231858",
+  "info": {
+    "nickname": "jerry.luk",
+    "email": "jerryluk@gmail.com",
+    "name": "Jerry Luk",
+    "first_name": "Jerry",
+    "last_name": "Luk",
+    "image": "http://graph.facebook.com/1231858/picture",
+    "description": "Keep calm and carry on",
+    "urls": {
+      "Facebook": "https://www.facebook.com/jerry.luk"
+    },
+    "location": "Saratoga, California",
+    "verified": true
+  },
+  "credentials": {
+    "token": "CAACDehWkZA84BAAFb3508KfMxJza0A7005SxCTbZB3lOWjc2tU13QXjGg4EdOpwtQv36PK9JbQngrbm3ig6r3T5xkCCJdsEQIGTkymHotk2UZAPZAcZBrKZCuuwnOeI8zh80N52an3RZBJOu58m1ZAovDwvUfBb6gdH0ZCxqlg68L4cG5a36snrXgPChZCA2afWbIZD",
+    "expires_at": 1406746732,
+    "expires": true
+  },
+  "extra": {
+    "raw_info": {
+      "id": "1231858",
+      "bio": "Keep calm and carry on",
+      "education": [
+        {
+          "school": {
+            "id": "103088026397925",
+            "name": "Salesian English School"
+          },
+          "type": "High School",
+          "year": {
+            "id": "144503378895008",
+            "name": "1999"
+          }
+        },
+        {
+          "concentration": [
+            {
+              "id": "115163685247948",
+              "name": "Electrical Engineering and Computer Sciences"
+            }
+          ],
+          "school": {
+            "id": "10111634660",
+            "name": "UC Berkeley"
+          },
+          "type": "College",
+          "year": {
+            "id": "113125125403208",
+            "name": "2004"
+          }
+        }
+      ],
+      "email": "jerryluk@gmail.com",
+      "first_name": "Jerry",
+      "gender": "male",
+      "hometown": {
+        "id": "113317605345751",
+        "name": "Hong Kong"
+      },
+      "last_name": "Luk",
+      "link": "https://www.facebook.com/jerry.luk",
+      "location": {
+        "id": "108482895842493",
+        "name": "Saratoga, California"
+      },
+      "locale": "en_US",
+      "name": "Jerry Luk",
+      "timezone": -7,
+      "updated_time": "2014-02-11T18:44:21+0000",
+      "username": "jerry.luk",
+      "verified": true,
+      "work": [
+        {
+          "employer": {
+            "id": "135609093117243",
+            "name": "Edmodo"
+          },
+          "location": {
+            "id": "108067045880199",
+            "name": "San Mateo, California"
+          },
+          "position": {
+            "id": "140805275954087",
+            "name": "Director of Engineering"
+          },
+          "start_date": "2013-12-31"
+        },
+        {
+          "description": "World fastest scheduler: presdo.com\nBest event networking tool: match.presdo.com",
+          "end_date": "2013-12-31",
+          "employer": {
+            "id": "149528561739956",
+            "name": "Presdo"
+          },
+          "location": {
+            "id": "108212625870265",
+            "name": "Mountain View, California"
+          },
+          "position": {
+            "id": "149398655076441",
+            "name": "Co-Founder & CTO"
+          },
+          "projects": [
+            {
+              "id": "113473772066431",
+              "description": "Presdo Match creates an invitation-only “social network” around your event for attendees, exhibitors and sponsors so they can find each other based on matching interests, communicate, and coordinate networking meetings at your event.",
+              "name": "Presdo Match"
+            }
+          ],
+          "start_date": "2009-01-01"
+        },
+        {
+          "end_date": "2009-05-01",
+          "employer": {
+            "id": "103724869666805",
+            "name": "LinkedIn"
+          },
+          "location": {
+            "id": "108212625870265",
+            "name": "Mountain View, California"
+          },
+          "position": {
+            "id": "110265725662722",
+            "name": "Senior Software Engineer"
+          },
+          "projects": [
+            {
+              "id": "113574912056366",
+              "description": "Lead engineer. Designed and implemented the backend, iPhone app, and the mobile web application",
+              "name": "LinkedIn Mobile"
+            }
+          ],
+          "start_date": "2005-01-01",
+          "with": [
+            {
+              "id": "506957763",
+              "name": "Ikai Lan"
+            }
+          ]
+        },
+        {
+          "description": "Project lead on LinkedIn Mobile\r\n- Built LinkedIn mobile from scratch, including iPhone native app",
+          "end_date": "2009-04-01",
+          "employer": {
+            "id": "6191007822",
+            "name": "LinkedIn"
+          },
+          "position": {
+            "id": "150187584994865",
+            "name": "Sr. Software Engineer"
+          },
+          "start_date": "2005-01-01"
+        }
+      ]
+    }
+  }
+}

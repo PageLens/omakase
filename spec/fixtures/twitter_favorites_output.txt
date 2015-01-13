@@ -1,0 +1,23 @@
+HTTP/1.1 200 OK
+cache-control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+content-length: 2568
+content-type: application/json;charset=utf-8
+date: Sun, 10 Aug 2014 05:48:09 GMT
+expires: Tue, 31 Mar 1981 05:00:00 GMT
+last-modified: Sun, 10 Aug 2014 05:48:09 GMT
+pragma: no-cache
+server: tfe
+set-cookie: lang=en
+set-cookie: guest_id=v1%3A140764968916544029; Domain=.twitter.com; Path=/; Expires=Tue, 09-Aug-2016 05:48:09 UTC
+status: 200 OK
+strict-transport-security: max-age=631138519
+x-access-level: read-write
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+x-rate-limit-limit: 15
+x-rate-limit-remaining: 12
+x-rate-limit-reset: 1407650519
+x-transaction: 0d8941d9f15d9bd0
+x-xss-protection: 1; mode=block
+
+[{"created_at":"Sun Aug 10 05:17:09 +0000 2014","id":498337233406283778,"id_str":"498337233406283778","text":"This app allows you to leave a message in a location, but your friends don't see it until they enter said location http:\/\/t.co\/bm7QvsAj4y","source":"\u003ca href=\"http:\/\/www.socialflow.com\" rel=\"nofollow\"\u003eSocialFlow\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":816653,"id_str":"816653","name":"TechCrunch","screen_name":"TechCrunch","location":"San Francisco, CA","description":"Breaking Technology News And Opinions From TechCrunch","url":"http:\/\/t.co\/FQzFJNIg8e","entities":{"url":{"urls":[{"url":"http:\/\/t.co\/FQzFJNIg8e","expanded_url":"http:\/\/techcrunch.com","display_url":"techcrunch.com","indices":[0,22]}]},"description":{"urls":[]}},"protected":false,"followers_count":3737910,"friends_count":869,"listed_count":90054,"created_at":"Wed Mar 07 01:27:09 +0000 2007","favourites_count":79,"utc_offset":-25200,"time_zone":"Pacific Time (US & Canada)","geo_enabled":true,"verified":true,"statuses_count":77176,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":true,"profile_background_color":"149500","profile_background_image_url":"http:\/\/pbs.twimg.com\/profile_background_images\/489072831733321729\/QTO84QJO.png","profile_background_image_url_https":"https:\/\/pbs.twimg.com\/profile_background_images\/489072831733321729\/QTO84QJO.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/469171480832380928\/rkZR1jIh_normal.png","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/469171480832380928\/rkZR1jIh_normal.png","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/816653\/1401204346","profile_link_color":"097000","profile_sidebar_border_color":"FFFFFF","profile_sidebar_fill_color":"DDFFCC","profile_text_color":"222222","profile_use_background_image":true,"default_profile":false,"default_profile_image":false,"following":true,"follow_request_sent":false,"notifications":false},"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":67,"favorite_count":46,"entities":{"hashtags":[],"symbols":[],"urls":[{"url":"http:\/\/t.co\/bm7QvsAj4y","expanded_url":"http:\/\/tcrn.ch\/1uwU935","display_url":"tcrn.ch\/1uwU935","indices":[115,137]}],"user_mentions":[]},"favorited":true,"retweeted":false,"possibly_sensitive":false,"lang":"en"}]

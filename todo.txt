@@ -1,0 +1,3 @@
+- Backup DB to google drive
+- Sharing settings
+- Deal with XCOR exception

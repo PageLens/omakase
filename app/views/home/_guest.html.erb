@@ -1,0 +1,6 @@
+<div id="main-container" class="container" role="main">
+  <%= render 'layouts/application_alert' %>
+  <h1>Home#index</h1>
+  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+  <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %>
+</div>

@@ -1,0 +1,6 @@
+<% if @folder_invitation.errors.blank? %>
+Omakase.flash('notice', '<%= j t('.notice')%>');
+$('#remote-modal').modal('hide');
+<% else %>
+Omakase.alert(I18n.t('global.save_failed'), '<%= j @folder_invitation.errors.full_messages.join(", ").html_safe %>');
+<% end %>

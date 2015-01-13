@@ -1,0 +1,40 @@
+development:
+  mailer_host: "localhost:3000"
+test:
+  mailer_host: "test.local"
+production:
+  mailer_host: "pagelens.com"
+staging:
+  mailer_host: "pagelens.com"
+chrome_ext:
+  url: 'https://chrome.google.com/webstore/detail/ljocjhpccencmdfplghajnfehofbcofe'
+emailbot:
+  email: 'a@pagelens.com'
+link:
+  decay: <%= 3.years.to_i %>
+  per_page: 10
+mailer:
+  notification_email: "notification+<%= MailTrackingInterceptor::MAIL_TAG_SIGNATURE %>@pagelensmail.com"
+page:
+  fetch_timeout: <%= 10.seconds.to_i %>
+  refetch_interval: <%= 1.week.to_i %>
+user:
+  admin_emails:
+  - "jerryluk@gmail.com"
+  excluded_usernames:
+  - "index"
+  - "show"
+  - "new"
+  - "create"
+  - "edit"
+  - "update"
+  - "destroy"
+  - "login"
+  - "logout"
+  - "users"
+  - "admin"
+  - "stylesheets"
+  - "assets"
+  - "javascripts"
+  - "images"
+  - "session"

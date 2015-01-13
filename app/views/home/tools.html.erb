@@ -1,0 +1,61 @@
+<div id="bookmarklet" class="tool">
+  <%= content_tag :h3, t("global.save_link_button") %>
+  <%= content_tag :p, t(".bookmarklet_explanation") %>
+  <div class="well">
+    <a class="bookmarklet btn btn-lg btn-primary" href="<%= render('home/bookmarklet').gsub(/\n\s*/, '') %>">
+       <%= t("global.save_link") %>
+     </a>
+    &larr;
+    <%= (browser == :ie) ? t(".add_to_favorites_html") : t(".add_to_bookmarks_html") %>
+  </div>
+  <div class="steps">
+    <%= content_tag :p, t(".install_in_browser_#{browser}_html", button: t("global.save_link_button")) %>
+    <ol>
+      <li><%= t(".display_bookmarks_in_#{browser}_html", button: t("global.save_link_button")) %></li>
+      <li><%= t(".drag_button_html", button: t("global.save_link_button")) %></li>
+      <li><%= t(".button_usage_html", button: t("global.save_link_button")) %></li>
+    </ol>
+  </div>
+</div>
+<hr>
+
+<%# Enable it when it's ready. %>
+<% if browser == :chrome and false %>
+  <div id="chrome-ext" class="tool">
+    <%= content_tag :h3, t(".chrome_ext_title") %>
+    <%= content_tag :p, t(".chrome_ext_intro") %>
+    <div class="image-container hardware">
+      <%= image_tag "chrome_ext_example_1280x800.png", :width => 601, :height => 376 %>
+    </div>
+    <%= content_tag :p, link_to(t(".chrome_ext_download"), CONFIG[:chrome_ext][:url], :target => "_blank"), class: 'lead' %>
+  </div>
+  <hr>
+<% end %>
+
+<div id="bookmark-importer" class="tool">
+  <%= content_tag :h3, t(".bookmark_importer_title")%>
+  <%= content_tag :p, t(".bookmark_importer_explanation") %>
+  <div>
+    <%= render "bookmark_imports/form" %>
+  </div>
+</div>
+<hr>
+
+<%# Enable it when it's ready. %>
+<% if false %>
+<div id="emailbot" class="tool">
+  <%= content_tag :h3, t(".emailbot_title") %>
+  <%= content_tag :p, t(".emailbot_explanation") %>
+  <%= image_tag "mailbot_example_650x490.jpg" %>
+  <div class="steps">
+    <%= content_tag :p, t(".email_instruction") %>
+    <ol>
+      <li><%= t(".email_to_html", :email => CONFIG[:emailbot][:email]) %></li>
+      <li><%= t(".email_url_html") %></li>
+      <li><%= t(".email_title_html") %></li>
+      <li><%= t(".email_note_html") %></li>
+    </ol>
+  </div>
+  <%= content_tag :p, t(".email_requirement") %>
+</div>
+<% end %>

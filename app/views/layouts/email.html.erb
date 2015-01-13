@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) || t("global.pagelens") %></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta charset="utf-8">
+  <%= stylesheet_link_tag 'email', media: 'all' %>
+</head>
+<body class="<%= @body_class %>">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="background">
+          <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" class="container">
+            <tbody>
+              <tr>
+                <td class="header">
+                  <%= link_to root_url do %>
+                    <%= image_tag(
+                      redirect_url(i: "pagelens_logo_388x100_white.png", mr: MailTrackingInterceptor::MAIL_TRACKING_SIGNATURE),
+                      width: 97, height: 25, alt: t("global.pagelens")) %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td class="body">
+                  <div class="separator">
+
+                  </div>
+                  <%= yield %>
+                </td>
+              </tr>
+              <tr>
+                <td class="footer">
+                  <%= t(".footer_html", unsubscribe_url: new_feedback_url, settings_url: settings_url, feedback_url: new_feedback_url) %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

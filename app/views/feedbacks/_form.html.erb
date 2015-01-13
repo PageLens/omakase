@@ -1,0 +1,25 @@
+<%= form_for(@feedback) do |f| %>
+  <% if @feedback.errors.any? %>
+    <div class="well error-explanation">
+      <ul>
+      <% @feedback.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :email, class: 'control-label' %>
+    <%= f.email_field :email, class: 'form-control', autofocus: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :subject, class: 'control-label' %>
+    <%= f.text_field :subject, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, class: 'control-label' %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+  <%= f.submit t("global.send"), class: 'btn btn-primary btn-lg' %>
+<% end %>

@@ -1,0 +1,6 @@
+<% if @link.errors.blank? %>
+Omakase.Links.addToContainer('<%= j render "link_item", link: @link %>');
+$('#remote-modal').modal('hide');
+<% else %>
+Omakase.alert(I18n.t('global.save_failed'), '<%= j @link.errors.full_messages.join(", ").html_safe %>');
+<% end %>

@@ -1,0 +1,12 @@
+<%= t(".export_instructions_#{browser}_markdown") %>
+<% if signed_in? %>
+  <%= form_for(@bookmark_import || current_user.bookmark_imports.new,
+    html: { class: "well" }) do |f| %>
+    <div class="form-group">
+      <%= f.file_field :bookmark_file %>
+    </div>
+    <%= f.submit t(".upload"), :class => "btn btn-primary" %>
+  <% end %>
+<% else %>
+  <%= link_to t(".sign_in_and_import"), new_bookmark_import_path, :class => "btn btn-primary" %>
+<% end %>

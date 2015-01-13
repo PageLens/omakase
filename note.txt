@@ -1,0 +1,25 @@
+FQL query to find stream filter:
+SELECT filter_key, name,value FROM stream_filter where uid=me() and name="Links"
+
+Graph API to get home feed links:
+me/home?filter=app_2309869772
+me/feed?filter=app_2309869772
+
+SELECT post_id, source_id, message
+   FROM stream
+  WHERE source_id
+     IN (SELECT target_id FROM connection WHERE source_id=me())
+    AND likes.user_likes
+
+  LIMIT 100
+
+
+  SELECT url FROM url_like where user_id=me()
+
+
+
+SELECT object_id, post_id, object_type, object_id_cursor
+   FROM like
+  WHERE user_id=me()
+  LIMIT 3
+  OFFSET 0

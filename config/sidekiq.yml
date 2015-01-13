@@ -1,0 +1,15 @@
+---
+:concurrency: 20
+:strict: false
+:logfile: log/sidekiq.log
+:pidfile: tmp/pids/sidekiq.pid
+:queues:
+  - [critical, 11]
+  - [high, 8]
+  - [medium, 5]
+  - [low, 2]
+  - [default, 2]
+staging:
+  :concurrency: 20
+production:
+  :concurrency: 20

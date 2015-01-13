@@ -1,0 +1,14 @@
+<div class="alert-container">
+  <% if notice.present? %>
+    <div class="alert alert-success" data-alert>
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <%= notice %>
+    </div>
+  <% end %>
+  <% if alert.present? %>
+    <div class="alert alert-danger" data-alert>
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <%= alert %>
+    </div>
+  <% end %>
+</div>

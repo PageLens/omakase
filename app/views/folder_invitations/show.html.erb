@@ -1,0 +1,19 @@
+<div class="center-block">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <% if @folder_invitation.message.present? %>
+        <%= content_tag :p, t('.content_with_message', username: @folder_invitation.user.name || @folder_invitation.user.username, folder: @folder_invitation.folder.name), class: 'lead' %>
+        <%= content_tag :p, class: 'lead' do %>
+          <%= content_tag :em, @folder_invitation.message %>
+        <% end %>
+      <% else %>
+        <%= content_tag :p, t('.content_without_message', username: @folder_invitation.user.name || @folder_invitation.user.username, folder: @folder_invitation.folder.name), class: 'lead' %>
+      <% end %>
+    </div>
+
+    <div class="panel-footer">
+      <%= link_to t('.accept'), folder_invitation_path(@folder_invitation), method: :patch, class: 'btn btn-primary btn-lg' %>
+      <%= link_to t('.ignore'), root_path, class: 'btn btn-default btn-lg' %>
+    </div>
+  </div>
+</div>

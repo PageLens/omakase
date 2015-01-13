@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%= render "layouts/application_head" %>
+</head>
+<body class="<%= params[:controller].parameterize %> <%= params[:action].parameterize %>" role="document">
+<div class="container-fluid">
+  <div class="row">
+    <%= render "links/sidebar" %>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <%= content_tag :div, class: 'page-header clearfix' do %>
+        <%= content_tag :div, class: 'row' do %>
+          <%= form_tag search_links_path, method: :get, class: 'search-links col-sm-12' do %>
+
+            <%= content_tag :div, class: 'form-group' do %>
+              <%= content_tag :div, class: 'input-group input-group-lg' do %>
+                <%= text_field_tag :query, params[:query], class: 'form-control' %>
+                <%= content_tag :span, class: 'input-group-btn' do %>
+                  <%= button_tag class: 'btn btn-primary' do %>
+                    <%= content_tag :span, t('global.search'), class: 'sr-only' %>
+                    <span class="glyphicon glyphicon-search"></span>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+
+            <%= content_tag :div, class: 'form-inline' do %>
+              <%= content_tag :div, class: 'form-group' do %>
+                <%= label_tag :folder_id, t('.select_folder'), class: 'sr-only' %>
+                <% folder_options =
+                  options_for_select(t('.any_folder') => '') +
+                  options_from_collection_for_select(@folders, :id, :name, params[:folder_id]) %>
+                <%= select_tag :folder_id, folder_options, {class: 'form-control input-sm'} %>
+              <% end %>
+
+              <% if @search_response.response['facets'].keywords.try(:terms) %>
+                <%= content_tag :div, class: 'form-group' do %>
+                  <%= label_tag :tags, t('.select_tags'), class: 'sr-only' %>
+                  <% terms_collection = {t('.any_tags') => ''} %>
+                  <% @search_response.response['facets'].keywords.terms.each do |facet| %>
+                    <% terms_collection[facet.term] = facet.term %>
+                  <% end %>
+                  <% keywords_options = options_for_select(terms_collection, params[:keywords]) %>
+                  <%= select_tag :keywords, keywords_options, {class: 'form-control input-sm'} %>
+                <% end %>
+              <% end %>
+
+              <%= content_tag :div, class: 'form-group' do %>
+                <%= label_tag :since, t('.select_since'), class: 'sr-only' %>
+                <%= select_tag :since, options_for_select({
+                    t('.any_time') => '',
+                    t('global.time_ago', :time => distance_of_time_in_words_to_now(3.days.ago)) => 3.days.ago.to_date.iso8601,
+                    t('global.time_ago', :time => distance_of_time_in_words_to_now(1.week.ago)) => 1.week.ago.to_date.iso8601,
+                    t('global.time_ago', :time => distance_of_time_in_words_to_now(1.month.ago)) => 1.month.ago.to_date.iso8601,
+                    t('global.time_ago', :time => distance_of_time_in_words_to_now(3.months.ago)) => 3.months.ago.to_date.iso8601,
+                    t('global.time_ago', :time => distance_of_time_in_words_to_now(6.months.ago)) => 6.months.ago.to_date.iso8601,
+                    t('global.time_ago', :time => distance_of_time_in_words_to_now(12.months.ago)) => 12.months.ago.to_date.iso8601
+                  }, params[:since]), {class: 'form-control input-sm'} %>
+              <% end %>
+
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <%= render 'layouts/application_alert' %>
+
+      <% if @search_response.size == 0 %>
+        <div class="no-links">
+          <%= content_tag :h4, t(".no_search_results"), class: 'lead' %>
+          <div class="suggestions">
+            <%= content_tag :p, t(".suggestions") %>
+            <ul>
+              <%= content_tag :li, t(".spell_suggestion") %>
+              <%= content_tag :li, t(".try_different_query_suggestion") %>
+              <%= content_tag :li, t(".bookmarklet_suggestion_html", url: tools_path(anchor: "bookmarklet"), button: t("global.save_link_button")) %>
+              <%= content_tag :li, t(".connect_suggestion_html",
+              facebook_url: omniauth_authorize_path(current_user, :facebook, origin: request.original_url),
+              twitter_url: omniauth_authorize_path(current_user, :twitter, origin: request.original_url)) %>
+            </ul>
+          </div>
+        </div>
+      <% else %>
+        <%= content_tag :ul, class: 'links' do %>
+          <% @search_response.results.each do |r| %>
+            <%= render 'search_result', search_result: r %>
+          <% end %>
+        <% end %>
+        <%= pagination_for(@search_response) %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= render 'layouts/modal' %>
+</body>
+</html>

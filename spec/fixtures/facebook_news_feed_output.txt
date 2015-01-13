@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+ETag: "268b22974db96f4b3e9a75d9662cdf74372f3652"
+Content-Type: application/json; charset=UTF-8
+Pragma: no-cache
+Access-Control-Allow-Origin: *
+X-FB-Rev: 1272844
+Cache-Control: private, no-cache, no-store, must-revalidate
+Expires: Sat, 01 Jan 2000 00:00:00 GMT
+X-FB-Debug: LmGndlPbuZLv/+sfodfdsLiFCjxnkbmCiD3xvHodIYw=
+Date: Tue, 03 Jun 2014 21:26:37 GMT
+Transfer-Encoding: chunked
+Connection: keep-alive
+
+{"data":[{"id":"829778776_10152563989228777","from":{"id":"829778776","name":"Carolyn Henderson"},"message":"Having personally known homeless veterans it's a disgrace what this Country does to our veterans.  Spend a few days at a PTSD clinic and it will really open your eyes.  The \"Hud Vash\" goes...sounds great and it is, however they won't pay for credit check fees which can be around $100.00.  Shame, shame, shame....","picture":"https:\/\/fbexternal-a.akamaihd.net\/safe_image.php?d=AQBicuQQUtu57f2a&w=154&h=154&url=http\u00253A\u00252F\u00252Fupw-prod-images.global.ssl.fastly.net\u00252Fnugget\u00252F537cdad06e33db47b5000013\u00252Fhomeless-veterans-10-halfed-0f25521e0ad1241e4d89944b35fcbeb8.jpg","link":"http:\/\/www.upworthy.com\/what-honorably-discharged-right-into-the-streets-looks-like?c=ag","name":"What 'Honorably Discharged' Right Into The Streets Looks Like","caption":"www.upworthy.com","description":"They saw combat and made it home. Now, they have to fight battles of a different kind.","icon":"https:\/\/fbstatic-a.akamaihd.net\/rsrc.php\/v2\/yD\/r\/aS8ecmYRys0.gif","actions":[{"name":"Comment","link":"https:\/\/www.facebook.com\/829778776\/posts\/10152563989228777"},{"name":"Like","link":"https:\/\/www.facebook.com\/829778776\/posts\/10152563989228777"}],"privacy":{"value":""},"type":"link","status_type":"shared_story","application":{"name":"Links","id":"2309869772"},"created_time":"2014-06-03T21:19:42+0000","updated_time":"2014-06-03T21:19:42+0000"}],"paging":{"previous":"https:\/\/graph.facebook.com\/v1.0\/1231858\/home?limit=1&filter=app_2309869772&access_token=CAACEdEose0cBADMWkJ4MZB4IT9iDIbcnO3VdHcgfn3lGtGYdZBZCrZC31NysPjvEm0Wk1ZCgKThrKH3lXkFOdM3BQR5PzJZAhZC2qaPQTw4r3b7reweef7YiMATvGoZAcXsyGj9N6jGTb3Sp2oVJtECqoVABDwHKJamBhB2MBY3U9GXFIPdoDmuANvUdqFP1S8LYHGlV6twkeAZDZD&since=1401830382&__previous=1","next":"https:\/\/graph.facebook.com\/v1.0\/1231858\/home?limit=1&filter=app_2309869772&access_token=CAACEdEose0cBADMWkJ4MZB4IT9iDIbcnO3VdHcgfn3lGtGYdZBZCrZC31NysPjvEm0Wk1ZCgKThrKH3lXkFOdM3BQR5PzJZAhZC2qaPQTw4r3b7reweef7YiMATvGoZAcXsyGj9N6jGTb3Sp2oVJtECqoVABDwHKJamBhB2MBY3U9GXFIPdoDmuANvUdqFP1S8LYHGlV6twkeAZDZD&until=1401830381"}}

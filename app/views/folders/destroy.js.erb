@@ -1,0 +1,4 @@
+$('ul.folders-sidebar #folder-<%= @folder.id %>').fadeOut(function() {
+  $(this).remove();
+});
+window.location.href = "<%= root_path %>";

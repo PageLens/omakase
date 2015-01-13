@@ -1,0 +1,43 @@
+<%= content_tag :div, class: 'welcome' do %>
+  <%= content_tag :h2 do %>
+    <%= t(".title") %>
+    <br>
+    <%= content_tag :small, t(".explaination") %>
+  <% end %>
+<% end %>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= content_tag :div, class: 'form-group' do %>
+    <%= f.label :login %>
+    <%= f.text_field :login, autofocus: true, class: 'form-control input-lg' %>
+  <% end %>
+  <%= content_tag :div, class: 'form-group' do %>
+    <%= f.label :password %>
+    <%= f.password_field :password, autocomplete: "off", class: 'form-control input-lg' %>
+    <%= content_tag :p, class: 'help-block' do %>
+      <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+    <% end %>
+  <% end %>
+
+  <% if devise_mapping.rememberable? -%>
+    <%= content_tag :div, class: 'checkbox' do %>
+      <%= f.label :remember_me do %>
+        <%= f.check_box :remember_me %>
+        <%= t('.remember_me') %>
+      <% end %>
+    <% end %>
+  <% end -%>
+
+  <%= f.submit t('.sign_in'), class: 'btn btn-success btn-lg' %>
+  <%= link_to t('.sign_up'), new_registration_path(resource_name), class: 'btn-lg' %>
+<% end %>
+<br>
+<div class="center-block social-sign-in">
+  <%= content_tag :h4, t('.love_social_network') %>
+  <div>
+    <%= link_to t('.sign_in_with_facebook'), user_omniauth_authorize_path(:facebook), class: 'btn btn-default btn-lg ' %>
+    <%= link_to t('.sign_in_with_twitter'), user_omniauth_authorize_path(:twitter), class: 'btn btn-default btn-lg' %>
+  </div>
+</div>
+
+<%#= render "devise/shared/links" %>

@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+ETag: "8b446c4fc9f4bb278abf8a7128b8cf7c1165da15"
+Content-Type: application/json; charset=UTF-8
+Pragma: no-cache
+Access-Control-Allow-Origin: *
+X-FB-Rev: 1272844
+Cache-Control: private, no-cache, no-store, must-revalidate
+Expires: Sat, 01 Jan 2000 00:00:00 GMT
+X-FB-Debug: L/LP2cvz7+8c4Ev3zJ0u392ffriSb4dtj/BcbgKLCPo=
+Date: Tue, 03 Jun 2014 21:18:58 GMT
+Transfer-Encoding: chunked
+Connection: keep-alive
+
+{"data":[],"paging":{"cursors":{"after":"MTAxMDMxNTQzOTU0Nzc5ODM=","before":"MTAxMDMxNTQzOTU0Nzc5ODM="}}}

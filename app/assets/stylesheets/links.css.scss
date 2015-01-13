@@ -1,0 +1,136 @@
+@import "variables";
+@import "bootstrap/mixins";
+
+body.links {
+
+  @media (min-width: 768px) {
+    .sidebar {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: $zindex-navbar;
+      display: block;
+      padding: 0;
+      overflow-x: hidden;
+      overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+      background-color: $gray-lightest;//#d8dde4;
+      border-right: 1px solid $gray-lighter;
+
+      .navbar-header {
+        float: none;
+      }
+
+      .folder-item {
+        a {
+          @include text-overflow();
+        }
+      }
+    }
+  }
+
+  /* Sidebar navigation */
+  .nav-sidebar {
+    margin-right: -21px; /* 20px padding + 1px border */
+    margin-bottom: 20px;
+    margin-left: -20px;
+  }
+  .nav-sidebar > li > a {
+    color: $text-color;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .nav-sidebar > .active > a {
+    color: #fff;
+    background-color: $brand-primary;
+  }
+
+  &.index {
+    .page-header {
+      // form.search-links {
+      //   margin: 20px auto auto 20px;
+      //   float: right;
+      // }
+      .btn-sm {
+        margin-top: 3px;
+      }
+      .btn-xs {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  &.search {
+    .page-header {
+      form.search-links {
+        margin: 20px auto auto auto;
+      }
+    }
+  }
+
+  &.index, &.search {
+    ul.links {
+      padding: 0;
+      list-style-type: none;
+
+      li.link-item {
+        h4 {
+          @include text-overflow();
+        }
+
+        .drag-to-folder a {
+          cursor: move;
+        }
+
+        .image-container {
+          margin: 10px;
+          overflow: hidden;
+          width: 80px;
+          height: 80px;
+          display: inline-block;
+          float: left;
+        }
+
+        .content-container {
+          margin: 15px 10px 0;
+          margin-left: 100px;
+          min-height: 100px;
+        }
+
+        .panel-footer {
+          font-size: $font-size-small;
+          padding: 5px 10px;
+          background-color: $gray-lightest;
+
+          ul {
+            list-style-type: none;
+            overflow: hidden;
+            padding: 0;
+            li {
+              float: left;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    .no-links {
+      .suggestions {
+        margin-left: 20px;
+        ul {
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+
+  &.bm_save {
+    background-color: transparent;
+    min-width: 300px;
+    button.close {
+      margin-left: 10px;
+    }
+  }
+
+}

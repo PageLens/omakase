@@ -1,0 +1,59 @@
+<%= content_tag :li, id: "link-#{search_result.id}", class: 'search-result link-item panel panel-default', data: {id: search_result.id, folder_id: search_result.folder_id} do %>
+  <%= content_tag :div, class: 'image-container img-circle drag-to-folder', data: {crop_image: 'fit'} do %>
+    <%= link_to image_tag(search_result.page.try(:image_url) || 'globe_512x512_white.png'), link_clicks_path(search_result.id) %>
+  <% end %>
+  <%= content_tag :div, class: 'content-container' do %>
+    <%= content_tag :h4 do %>
+      <%= link_to link_clicks_path(search_result.id) do %>
+        <%= search_result.try(:highlight).try(:name) ? search_result.highlight['name'].join.html_safe : search_result.name %>
+      <% end %>
+    <% end %>
+    <% if search_result.keywords.present? %>
+      <%= content_tag :div, class: 'keywords' do %>
+        <% search_result.keywords.each do |keyword| %>
+          <%= content_tag :span, keyword, class: 'label label-info' %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <% description =
+      (search_result.try(:highlight) and search_result.highlight['page.content'].present?) ?
+      search_result.highlight['page.content'].join.html_safe :
+      search_result.try(:description)
+    %>
+    <% note =
+      (search_result.try(:highlight) and search_result.highlight['note'].present?) ?
+      search_result.highlight['note'].join.html_safe :
+      search_result.try(:note)
+    %>
+    <%= content_tag :p, description, class: 'description' if description.present? %>
+    <%= content_tag :p, class: 'note' do %>
+      <%= content_tag :em, note %>
+    <% end if note.present? %>
+  <% end %>
+  <%= content_tag :div, class: 'panel-footer' do %>
+    <%= content_tag :ul do %>
+      <%= content_tag :li do %>
+        <span class="glyphicon glyphicon-time"></span>
+        <%= friendly_time_tag(search_result.saved_at) %>
+      <% end %>
+      <%= content_tag :li do %>
+        <%= link_to preview_link_path(search_result.id), remote: true do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+          <%= t('.preview') %>
+        <% end %>
+      <% end %>
+      <%= content_tag :li do %>
+        <%= link_to edit_link_path(search_result.id), remote: true do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+          <%= t('global.edit') %>
+        <% end %>
+      <% end %>
+      <%= content_tag :li do %>
+        <%= link_to link_path(search_result.id), remote: true, method: 'delete', data: {confirm: t('.delete_confirmation'), confirm_ok: t('global.delete')} do %>
+          <span class="glyphicon glyphicon-trash"></span>
+          <%= t('global.delete') %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
