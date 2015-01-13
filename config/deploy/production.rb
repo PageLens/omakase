@@ -3,9 +3,9 @@ set :nginx_use_ssl, true
 set :nginx_ssl_cert_local_path, "keys/ssl/pagelens.com.crt"
 set :nginx_ssl_cert_key_local_path, "keys/ssl/pagelens.key"
 set :pg_pool, 30
-set :pg_host, '192.168.0.18'
-set :redis_host, "192.168.0.18"
-set :search_host, '192.168.0.19'
+set :pg_host, '127.0.0.1'
+set :redis_host, "127.0.0.1"
+set :search_host, '127.0.0.1'
 set :sidekiq_processes, 2
 set :unicorn_workers, 4
 
@@ -15,12 +15,12 @@ set :unicorn_workers, 4
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-role :app, %w{deploy@38.113.112.17}
-role :web, %w{deploy@38.113.112.17}
-role :redis, %w{deploy@38.113.112.18}
-role :db,  %w{deploy@38.113.112.18}
-role :worker, %w{deploy@38.113.112.19}
-role :search, %w{deploy@38.113.112.19}
+role :app, %w{deploy@162.243.146.103}
+role :web, %w{deploy@162.243.146.103}
+role :redis, %w{deploy@162.243.146.103}
+role :db,  %w{deploy@162.243.146.103}
+role :worker, %w{deploy@162.243.146.103}
+role :search, %w{deploy@162.243.146.103}
 
 # Extended Server Syntax
 # ======================
